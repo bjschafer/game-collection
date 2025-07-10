@@ -1,0 +1,16 @@
+name = "game-collection"
+main = "src/index.ts"
+
+routes = [
+    { pattern = "games.whizkid.dev", custom_domain = true }
+]
+
+
+[[d1_databases]]
+binding = "DB"
+database_name = "games_owned"
+database_id = "c78e04fa-6d6f-46c2-9e43-f142c00c158b"
+preview_database_id = "c78e04fa-6d6f-46c2-9e43-f142c00c158b"
+
+[build]
+command = "npm run build"
