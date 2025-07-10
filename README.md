@@ -1,5 +1,7 @@
 # Game Collection viewer
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fbjschafer%2Fgame-collection)
+
 This is a game collection viewer designed to run on Cloudflare Workers and D1.
 
 It gets the collection data by manually importing data from GAMEYE into D1.
