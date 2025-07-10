@@ -159,10 +159,11 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
         <div class="item-card">
           <div class="item-title">\${item.title}</div>
           <div class="item-details">
+            \${'${itemType}' !== 'consoles' ? \`
             <div class="item-detail">
               <span class="item-detail-label">Platform:</span>
               <span>\${item.platform_icon} \${item.platform_name}</span>
-            </div>
+            </div>\` : ''}
             \${item.item_quality !== null ? \`
             <div class="item-detail">
               <span class="item-detail-label">Quality:</span>
