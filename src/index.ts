@@ -249,7 +249,7 @@ router.get('/', async () => {
         </div>
         
         <footer style="margin-top: 2rem; padding: 1rem; text-align: center; color: rgba(255, 255, 255, 0.8);">
-          <a href="https://github.com/bjschafer/game-collection" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
+          <a href="https://github.com/bjschafer/game-collection" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
         </footer>
         
       </div>
