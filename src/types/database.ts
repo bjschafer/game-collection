@@ -58,4 +58,7 @@ export interface Tag {
 
 export interface Environment {
   DB: D1Database;
+  GAMEYE_CACHE: KVNamespace;
+  CLOUDFLARE_IMAGES_TOKEN?: string;
+  CLOUDFLARE_ACCOUNT_ID?: string;
 }

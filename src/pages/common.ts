@@ -24,6 +24,7 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
   <script>
     let allItems = [];
     let filteredItems = [];
+    let gameyeData = {};
     
     async function loadCollection() {
       try {
@@ -46,10 +47,81 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
         if ('${itemType}' === 'games') {
           updateFilterInfo();
         }
+        
+        // Load GAMEYE data for all items
+        await loadGameyeData();
       } catch (error) {
         console.error('Error loading ${itemType}:', error);
         document.getElementById('content').innerHTML = 
           '<div class="loading">Error loading ${itemType}. Please try again.</div>';
+      }
+    }
+    
+    async function loadGameyeData() {
+      // Process items in batches to avoid overwhelming the API
+      const batchSize = 5;
+      const batches = [];
+      
+      for (let i = 0; i < allItems.length; i += batchSize) {
+        batches.push(allItems.slice(i, i + batchSize));
+      }
+      
+      let processedCount = 0;
+      const totalCount = allItems.length;
+      
+      for (const batch of batches) {
+        const promises = batch.map(async item => {
+          try {
+            const response = await fetch(\`/api/gameye/\${item.item_id}\`);
+            if (response.ok) {
+              gameyeData[item.item_id] = await response.json();
+              processedCount++;
+              
+              // Update progress
+              const progress = Math.round((processedCount / totalCount) * 100);
+              console.log(\`Loading GAMEYE data: \${progress}% (\${processedCount}/\${totalCount})\`);
+              
+              // Update just this specific item instead of re-rendering everything
+              updateSingleItem(item);
+            }
+          } catch (error) {
+            console.error(\`Error loading GAMEYE data for item \${item.item_id}:\`, error);
+            processedCount++;
+          }
+        });
+        
+        await Promise.all(promises);
+        
+        // Add a small delay between batches to be respectful to the API
+        if (batches.indexOf(batch) < batches.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+      }
+      
+      console.log('GAMEYE data loading completed');
+    }
+    
+    function updateSingleItem(item) {
+      // Only update if this item is currently visible (in filtered results)
+      if (!filteredItems.some(filteredItem => filteredItem.item_id === item.item_id)) {
+        return;
+      }
+      
+      const itemElement = document.querySelector(\`[data-item-id="\${item.item_id}"]\`);
+      if (!itemElement) return;
+      
+      const gameye = gameyeData[item.item_id];
+      let coverArt = null;
+      
+      if (gameye && gameye.images && gameye.images["0"] && gameye.images["0"].length > 0) {
+        const originalUrl = \`https://dt.gameye.app/data/streaming/images/items/v1/thumbs/large/\${gameye.images["0"][0].File}\`;
+        coverArt = \`/api/image-proxy?url=\${encodeURIComponent(originalUrl)}\`;
+      }
+      
+      // Find the cover placeholder and update it
+      const coverContainer = itemElement.querySelector('.item-cover-container');
+      if (coverContainer && coverArt) {
+        coverContainer.innerHTML = \`<div class="item-cover"><img src="\${coverArt}" alt="\${item.title} cover" loading="lazy" /></div>\`;
       }
     }
     
@@ -155,35 +227,57 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
     }
     
     function displayItems(items) {
-      const html = items.map(item => \`
-        <div class="item-card">
-          <div class="item-title">\${item.title}</div>
-          <div class="item-details">
-            \${'${itemType}' !== 'consoles' ? \`
-            <div class="item-detail">
-              <span class="item-detail-label">Platform:</span>
-              <span>\${item.platform_icon} \${item.platform_name}</span>
-            </div>\` : ''}
-            <div class="item-detail">
-              <span class="item-detail-label">Region:</span>
-              <span>\${item.country_flag} \${item.country_name}</span>
+      const html = items.map(item => {
+        const gameye = gameyeData[item.item_id];
+        let coverArt = null;
+        
+        if (gameye && gameye.images && gameye.images["0"] && gameye.images["0"].length > 0) {
+          const originalUrl = \`https://dt.gameye.app/data/streaming/images/items/v1/thumbs/large/\${gameye.images["0"][0].File}\`;
+          coverArt = \`/api/image-proxy?url=\${encodeURIComponent(originalUrl)}\`;
+        }
+        
+        const encyclopediaUrl = \`https://www.gameye.app/encylopedia/\${item.item_id}\`;
+        
+        return \`
+        <div class="item-card" data-item-id="\${item.item_id}">
+          <div class="item-cover-container">
+            \${coverArt ? \`<div class="item-cover"><img src="\${coverArt}" alt="\${item.title} cover" loading="lazy" /></div>\` : ''}
+          </div>
+          <div class="item-content">
+            <div class="item-title">\${item.title}</div>
+            <div class="item-details">
+              \${'${itemType}' !== 'consoles' ? \`
+              <div class="item-detail">
+                <span class="item-detail-label">Platform:</span>
+                <span>\${item.platform_icon} \${item.platform_name}</span>
+              </div>\` : ''}
+              <div class="item-detail">
+                <span class="item-detail-label">Region:</span>
+                <span>\${item.country_flag} \${item.country_name}</span>
+              </div>
+              \${item.item_quality !== null ? \`
+              <div class="item-detail">
+                <span class="item-detail-label">Quality:</span>
+                <span>
+                  \${(item.item_quality * 100).toFixed(0)}%
+                  \${getQualityIndicator(item.item_quality)}
+                </span>
+              </div>\` : ''}
+              <div class="item-detail">
+                <span class="item-detail-label">Added:</span>
+                <span>\${new Date(item.created_at * 1000).toLocaleDateString()}</span>
+              </div>
             </div>
-            \${item.item_quality !== null ? \`
-            <div class="item-detail">
-              <span class="item-detail-label">Quality:</span>
-              <span>
-                \${(item.item_quality * 100).toFixed(0)}%
-                \${getQualityIndicator(item.item_quality)}
-              </span>
-            </div>\` : ''}
-            <div class="item-detail">
-              <span class="item-detail-label">Added:</span>
-              <span>\${new Date(item.created_at * 1000).toLocaleDateString()}</span>
+            \${item.note && item.note.trim() ? \`<div class="item-note">\${item.note}</div>\` : ''}
+            <div class="item-actions">
+              <a href="\${encyclopediaUrl}" target="_blank" rel="noopener noreferrer" class="gameye-link">
+                📖 View in GAMEYE Encyclopedia
+              </a>
             </div>
           </div>
-          \${item.note && item.note.trim() ? \`<div class="item-note">\${item.note}</div>\` : ''}
         </div>
-      \`).join('');
+      \`;
+      }).join('');
       
       document.getElementById('items').innerHTML = html;
     }

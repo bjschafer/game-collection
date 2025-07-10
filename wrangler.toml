@@ -13,6 +13,16 @@ database_name = "games_owned"
 database_id = "c78e04fa-6d6f-46c2-9e43-f142c00c158b"
 preview_database_id = "c78e04fa-6d6f-46c2-9e43-f142c00c158b"
 
+[[kv_namespaces]]
+binding = "GAMEYE_CACHE"
+id = "b63c42bd28e044299aa55d95faad6b82"
+preview_id = "d2e0352410354adbb6580fd68941519c"
+
+#[[secrets]]
+# Add your Cloudflare Images API token as a secret:
+# wrangler secret put CLOUDFLARE_ACCOUNT_ID
+# wrangler secret put CLOUDFLARE_IMAGES_TOKEN
+
 [build]
 command = "npm run build"
 

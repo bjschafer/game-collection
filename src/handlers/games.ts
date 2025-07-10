@@ -1,6 +1,7 @@
 import { Environment, OwnershipRecord, OwnershipRecordWithPlatform } from '../types/database';
 import { getPlatformName, getPlatformIcon, getAllPlatforms } from '../utils/platforms';
 import { getCountryName, getCountryFlag } from '../utils/countries';
+import { getGameyeItem } from '../utils/gameye';
 
 export async function getGames(env: Environment): Promise<Response> {
   try {
@@ -136,6 +137,40 @@ export async function getPlatforms(): Promise<Response> {
     console.error('Error fetching platforms:', error);
     return new Response(JSON.stringify({ 
       error: 'Failed to fetch platforms', 
+      details: error instanceof Error ? error.message : 'Unknown error' 
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+}
+
+export async function getGameyeItemData(env: Environment, itemId: string): Promise<Response> {
+  try {
+    const itemIdNum = parseInt(itemId, 10);
+    if (isNaN(itemIdNum)) {
+      return new Response(JSON.stringify({ error: 'Invalid item ID' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    const gameyeData = await getGameyeItem(env, itemIdNum);
+    
+    if (!gameyeData) {
+      return new Response(JSON.stringify({ error: 'Item not found in GAMEYE' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    return new Response(JSON.stringify(gameyeData), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error fetching GAMEYE item:', error);
+    return new Response(JSON.stringify({ 
+      error: 'Failed to fetch GAMEYE item', 
       details: error instanceof Error ? error.message : 'Unknown error' 
     }), {
       status: 500,

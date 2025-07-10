@@ -113,11 +113,39 @@ export const getSharedStyles = () => `
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
     }
     
     .item-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .item-cover-container {
+      flex-shrink: 0;
+      width: 80px;
+      height: 112px;
+    }
+    
+    .item-cover {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .item-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .item-content {
+      flex: 1;
+      min-width: 0;
     }
     
     .item-title {
@@ -277,6 +305,30 @@ export const getSharedStyles = () => `
       background: #5a6fd8;
     }
     
+    .item-actions {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.1);
+    }
+    
+    .gameye-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .gameye-link:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
     @media (max-width: 768px) {
       .nav {
         flex-direction: column;
@@ -293,6 +345,22 @@ export const getSharedStyles = () => `
       
       .collection-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .item-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .item-cover-container {
+        width: 120px;
+        height: 168px;
+        margin-bottom: 1rem;
+      }
+      
+      .item-content {
+        width: 100%;
       }
       
       .stats-grid {

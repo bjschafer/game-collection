@@ -173,3 +173,4 @@ dist
 *.sql
 *.db
 .wrangler/
+.dev.vars
