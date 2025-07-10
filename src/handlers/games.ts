@@ -146,12 +146,9 @@ export async function getPlatforms(): Promise<Response> {
 }
 
 export async function getGameyeItemData(env: Environment, itemId: string): Promise<Response> {
-  console.log(`GAMEYE API request for item ID: ${itemId}`);
-  
   try {
     const itemIdNum = parseInt(itemId, 10);
     if (isNaN(itemIdNum)) {
-      console.error(`Invalid item ID: ${itemId}`);
       return new Response(JSON.stringify({ error: 'Invalid item ID' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
@@ -161,14 +158,12 @@ export async function getGameyeItemData(env: Environment, itemId: string): Promi
     const gameyeData = await getGameyeItem(env, itemIdNum);
     
     if (!gameyeData) {
-      console.log(`No GAMEYE data found for item ID: ${itemIdNum}`);
       return new Response(JSON.stringify({ error: 'Item not found in GAMEYE' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    console.log(`Successfully fetched GAMEYE data for item ID: ${itemIdNum}`);
     return new Response(JSON.stringify(gameyeData), {
       headers: { 'Content-Type': 'application/json' },
     });

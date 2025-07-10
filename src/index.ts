@@ -31,17 +31,6 @@ router.get('/api/platforms', async () => {
   return getPlatforms();
 });
 
-// Test route to verify router is working
-router.get('/api/test/:id', async (request: Request, env: Environment, params: Record<string, string>) => {
-  return new Response(JSON.stringify({ 
-    message: 'Router is working', 
-    id: params.id,
-    timestamp: new Date().toISOString()
-  }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-});
-
 router.get('/api/gameye/:itemId', async (request: Request, env: Environment, params: Record<string, string>) => {
   return getGameyeItemData(env, params.itemId);
 });
