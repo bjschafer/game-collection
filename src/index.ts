@@ -244,6 +244,10 @@ router.get('/', async () => {
           </a>
         </div>
         
+        <footer style="margin-top: 2rem; padding: 1rem; text-align: center; color: rgba(255, 255, 255, 0.8);">
+          <a href="https://github.com/bschafer/game-collection" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
+        </footer>
+        
       </div>
     </body>
     </html>
