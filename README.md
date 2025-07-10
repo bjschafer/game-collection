@@ -25,3 +25,7 @@ npx wrangler d1 execute games_owned --remote --file=db.sql
 ## Note
 
 I'm not a web dev, so pretty much all of the web-ish bits were written by AI.
+
+I did the reverse engineering (if you can call it that) of the GAMEYE collection export.
+So it may be missing info on e.g. consoles I don't have in my collection. Feel free to
+open an issue and help me improve it.
