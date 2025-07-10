@@ -48,8 +48,8 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
           updateFilterInfo();
         }
         
-        // Load GAMEYE data for all items
-        await loadGameyeData();
+        // GAMEYE integration disabled for now due to rate limiting issues
+        // await loadGameyeData();
       } catch (error) {
         console.error('Error loading ${itemType}:', error);
         document.getElementById('content').innerHTML = 
@@ -228,21 +228,10 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
     
     function displayItems(items) {
       const html = items.map(item => {
-        const gameye = gameyeData[item.item_id];
-        let coverArt = null;
-        
-        if (gameye && gameye.images && gameye.images["0"] && gameye.images["0"].length > 0) {
-          const originalUrl = \`https://dt.gameye.app/data/streaming/images/items/v1/thumbs/large/\${gameye.images["0"][0].File}\`;
-          coverArt = \`/api/image-proxy?url=\${encodeURIComponent(originalUrl)}\`;
-        }
-        
         const encyclopediaUrl = \`https://www.gameye.app/encylopedia/\${item.item_id}\`;
         
         return \`
         <div class="item-card" data-item-id="\${item.item_id}">
-          <div class="item-cover-container">
-            \${coverArt ? \`<div class="item-cover"><img src="\${coverArt}" alt="\${item.title} cover" loading="lazy" /></div>\` : ''}
-          </div>
           <div class="item-content">
             <div class="item-title">\${item.title}</div>
             <div class="item-details">

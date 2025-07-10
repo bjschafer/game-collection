@@ -113,9 +113,6 @@ export const getSharedStyles = () => `
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
     }
     
     .item-card:hover {
@@ -348,19 +345,7 @@ export const getSharedStyles = () => `
       }
       
       .item-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      
-      .item-cover-container {
-        width: 120px;
-        height: 168px;
-        margin-bottom: 1rem;
-      }
-      
-      .item-content {
-        width: 100%;
+        text-align: left;
       }
       
       .stats-grid {
