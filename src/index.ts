@@ -19,9 +19,12 @@ router.get('/api/accessories', async (request: Request, env: Environment) => {
   return getAccessories(env);
 });
 
-router.get('/api/games/:id', async (request: Request, env: Environment, params: Record<string, string>) => {
-  return getGameById(env, params.id);
-});
+router.get(
+  '/api/games/:id',
+  async (request: Request, env: Environment, params: Record<string, string>) => {
+    return getGameById(env, params.id);
+  },
+);
 
 router.get('/api/platforms', async () => {
   return getPlatforms();
@@ -46,7 +49,8 @@ router.get('/accessories', async () => {
 });
 
 router.get('/', async () => {
-  return new Response(`
+  return new Response(
+    `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -245,15 +249,17 @@ router.get('/', async () => {
         </div>
         
         <footer style="margin-top: 2rem; padding: 1rem; text-align: center; color: rgba(255, 255, 255, 0.8);">
-          <a href="https://github.com/bschafer/game-collection" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
+          <a href="https://github.com/bjschafer/game-collection" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
         </footer>
         
       </div>
     </body>
     </html>
-  `, {
-    headers: { 'Content-Type': 'text/html' },
-  });
+  `,
+    {
+      headers: { 'Content-Type': 'text/html' },
+    },
+  );
 });
 
 export default {
@@ -261,3 +267,4 @@ export default {
     return router.handle(request, env);
   },
 };
+
