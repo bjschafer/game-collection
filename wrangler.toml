@@ -14,3 +14,7 @@ preview_database_id = "c78e04fa-6d6f-46c2-9e43-f142c00c158b"
 
 [build]
 command = "npm run build"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
