@@ -52,7 +52,7 @@ router.get('/', async () => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Game Collection</title>
+      <title>Braxton's Game Collection</title>
       <style>
         * {
           margin: 0;
@@ -211,7 +211,7 @@ router.get('/', async () => {
     <body>
       <header class="header">
         <nav class="nav">
-          <h1><a href="/">🎮 Game Collection</a></h1>
+          <h1><a href="/">🎮 Braxton's Game Collection</a></h1>
           <ul class="nav-links">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/games">Games</a></li>
@@ -223,24 +223,24 @@ router.get('/', async () => {
       
       <div class="container">
         <div class="hero">
-          <h2>Welcome to Your Collection</h2>
-          <p>Explore and showcase your video game, console, and accessory collection</p>
+          <h2>Welcome to Braxton's Collection</h2>
+          <p>Explore and discover Braxton's curated video game, console, and accessory collection</p>
         </div>
         
         <div class="collection-cards">
           <a href="/games" class="collection-card">
             <h3>🎮 Games</h3>
-            <p>Browse your complete games library with detailed information about each title</p>
+            <p>Browse Braxton's complete games library with detailed information about each title</p>
           </a>
           
           <a href="/consoles" class="collection-card">
             <h3>🖥️ Consoles</h3>
-            <p>View all your gaming consoles and systems from retro to modern</p>
+            <p>View all of Braxton's gaming consoles and systems from retro to modern</p>
           </a>
           
           <a href="/accessories" class="collection-card">
             <h3>🎯 Accessories</h3>
-            <p>Check out your controllers, cables, and other gaming accessories</p>
+            <p>Check out Braxton's controllers, cables, and other gaming accessories</p>
           </a>
         </div>
         

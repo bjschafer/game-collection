@@ -8,7 +8,7 @@ export function getGamesPage(): string {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Games Collection</title>
+      <title>Games - Braxton's Game Collection</title>
       ${getSharedStyles()}
     </head>
     <body>

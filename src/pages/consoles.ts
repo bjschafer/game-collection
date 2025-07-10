@@ -8,7 +8,7 @@ export function getConsolesPage(): string {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Consoles Collection</title>
+      <title>Consoles - Braxton's Game Collection</title>
       ${getSharedStyles()}
     </head>
     <body>
