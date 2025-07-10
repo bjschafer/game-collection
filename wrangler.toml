@@ -1,5 +1,6 @@
 name = "game-collection"
 main = "src/index.ts"
+compatibility_date = "2025-07-10"
 
 routes = [
     { pattern = "games.whizkid.dev", custom_domain = true }
