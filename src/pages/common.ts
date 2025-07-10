@@ -164,6 +164,10 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
               <span class="item-detail-label">Platform:</span>
               <span>\${item.platform_icon} \${item.platform_name}</span>
             </div>\` : ''}
+            <div class="item-detail">
+              <span class="item-detail-label">Region:</span>
+              <span>\${item.country_flag} \${item.country_name}</span>
+            </div>
             \${item.item_quality !== null ? \`
             <div class="item-detail">
               <span class="item-detail-label">Quality:</span>

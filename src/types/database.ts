@@ -23,6 +23,8 @@ export interface OwnershipRecord {
 export interface OwnershipRecordWithPlatform extends OwnershipRecord {
   platform_name: string;
   platform_icon: string;
+  country_name: string;
+  country_flag: string;
 }
 
 export interface BacklogRecord {
