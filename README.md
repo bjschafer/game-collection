@@ -19,6 +19,9 @@ sqlite3 ownership_database.db .dump > db.sql
 sed -i \
     -e 's/BEGIN TRANSACTION;//g' \
     -e 's/COMMIT;//g' \
+    -e 's/CREATE TABLE /CREATE TABLE IF NOT EXISTS /g' \
+    -e 's/INSERT INTO /INSERT OR IGNORE INTO /g' \
+    -e 's/CREATE INDEX /CREATE INDEX IF NOT EXISTS /g' \
     db.sql
 
 npx wrangler d1 execute games_owned --remote --file=db.sql
