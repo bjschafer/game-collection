@@ -63,6 +63,10 @@ export function getShortPlatformName(platformId: number | null): string {
     'PlayStation Vita': 'PS Vita',
     'Xbox Series X/S': 'Xbox Series X|S',
     'Nintendo Switch 2': 'Switch 2',
+    'Game Boy Advance': 'GBA',
+    'Game Boy Color': 'GBC',
+    'Sega Master System': 'Master System',
+    'Sega Game Gear': 'Game Gear',
   };
   
   return shortNames[fullName] || fullName;
@@ -79,48 +83,50 @@ export function getAllPlatforms(): Array<{ id: number; name: string }> {
 }
 
 /**
- * Get platform emoji/icon for visual representation
+ * Get platform icon URL for visual representation
  */
 export function getPlatformIcon(platformId: number | null): string {
   if (platformId === null || platformId === undefined) {
-    return '🎮';
+    return '/icons/generic.png';
   }
 
-  const icons: Record<number, string> = {
-    1: '💻', // PC
-    2: '🟣', // GameCube
-    3: '🟩', // N64
-    4: '🔲', // Game Boy
-    5: '🔳', // GBA
-    6: '🟪', // SNES
-    7: '⬜', // NES
-    8: '📱', // DS
-    9: '🤍', // Wii
-    10: '🔘', // PlayStation
-    11: '⚫', // PS2
-    12: '⚫', // PS3
-    13: '📱', // PSP
-    15: '🟢', // Xbox 360
-    16: '🟠', // Dreamcast
-    17: '🟫', // Saturn
-    18: '⚫', // Genesis
-    19: '🔲', // Game Gear
-    21: '🟫', // Atari 2600
-    32: '⚫', // 32X
-    34: '⬜', // Master System
-    36: '🤍', // Wii U
-    37: '⚫', // PS Vita
-    38: '🟫', // C64
-    39: '🟨', // GBC
-    41: '🔵', // 3DS
-    46: '🔵', // PS4
-    47: '🟢', // Xbox One
-    97: '🔴', // Switch
-    105: '🔵', // PS5
-    106: '🟢', // Xbox Series
-    118: '🧸', // Amiibo
-    178: '🔴', // Switch 2
+  const iconUrls: Record<number, string> = {
+    1: '/icons/pc.png', // PC
+    2: '/icons/gamecube.png', // GameCube
+    3: '/icons/n64.png', // N64
+    4: '/icons/gameboy.png', // Game Boy
+    5: '/icons/gba.png', // GBA
+    6: '/icons/snes.png', // SNES
+    7: '/icons/nes.png', // NES
+    8: '/icons/ds.png', // DS
+    9: '/icons/wii.png', // Wii
+    10: '/icons/ps1.png', // PlayStation
+    11: '/icons/ps2.png', // PS2
+    12: '/icons/ps3.png', // PS3
+    13: '/icons/psp.png', // PSP
+    14: '/icons/xbox.png', // Xbox
+    15: '/icons/xbox360.png', // Xbox 360
+    16: '/icons/dreamcast.png', // Dreamcast
+    17: '/icons/saturn.png', // Saturn
+    18: '/icons/genesis.png', // Genesis
+    19: '/icons/gamegear.png', // Game Gear
+    20: '/icons/neogeo.png', // Neo Geo
+    21: '/icons/atari2600.png', // Atari 2600
+    32: '/icons/genesis.png', // 32X (using Genesis icon)
+    34: '/icons/mastersystem.png', // Master System
+    36: '/icons/wiiu.png', // Wii U
+    37: '/icons/psp-go.png', // PS Vita
+    38: '/icons/c64.png', // C64
+    39: '/icons/gbc.png', // GBC
+    41: '/icons/3ds.png', // 3DS
+    46: '/icons/ps4.png', // PS4
+    47: '/icons/xbox-one.png', // Xbox One
+    97: '/icons/switch.png', // Switch
+    105: '/icons/ps5.png', // PS5
+    106: '/icons/xbox-series.png', // Xbox Series
+    118: '/icons/amiibo.png', // Amiibo
+    178: '/icons/switch2.png', // Switch 2
   };
 
-  return icons[platformId] || '🎮';
+  return iconUrls[platformId] || '/icons/generic.png';
 }

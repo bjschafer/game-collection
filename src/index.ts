@@ -1,6 +1,7 @@
 import { Router } from './utils/router';
 import { getGames, getConsoles, getAccessories, getGameById, getPlatforms, getGameyeItemData } from './handlers/games';
 import { getImageProxy } from './handlers/images';
+import { getIcon } from './handlers/icons';
 import { Environment } from './types/database';
 import { getGamesPage } from './pages/games';
 import { getConsolesPage } from './pages/consoles';
@@ -38,6 +39,11 @@ router.get('/api/gameye/:itemId', async (request: Request, env: Environment, par
 router.get('/api/image-proxy', async (request: Request, env: Environment) => {
   return getImageProxy(request, env);
 });
+
+router.get('/icons/:filename', async (request: Request, env: Environment, params: Record<string, string>) => {
+  return getIcon(params.filename);
+});
+
 
 router.get('/games', async () => {
   return new Response(getGamesPage(), {

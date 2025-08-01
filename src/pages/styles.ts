@@ -155,7 +155,7 @@ export const getSharedStyles = () => `
     
     .item-details {
       display: grid;
-      gap: 0.3rem;
+      gap: 0.5rem;
       font-size: 0.9rem;
       color: #666;
     }
@@ -163,11 +163,20 @@ export const getSharedStyles = () => `
     .item-detail {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 32px;
+    }
+    
+    .item-detail > span:last-child {
+      text-align: right;
     }
     
     .item-detail-label {
       font-weight: 500;
       color: #555;
+      flex-shrink: 0;
+      min-width: 60px;
     }
     
     .item-note {
@@ -192,6 +201,33 @@ export const getSharedStyles = () => `
     .quality-good { background: #f59e0b; }
     .quality-fair { background: #ef4444; }
     .quality-unknown { background: #6b7280; }
+    
+    .platform-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+    
+    .platform-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+      max-width: 160px;
+    }
+    
+    .platform-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 3px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
     
     .stats {
       background: rgba(255, 255, 255, 0.95);

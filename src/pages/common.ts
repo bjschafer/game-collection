@@ -238,7 +238,10 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
               \${'${itemType}' !== 'consoles' ? \`
               <div class="item-detail">
                 <span class="item-detail-label">Platform:</span>
-                <span>\${item.platform_icon} \${item.platform_name}</span>
+                <span class="platform-info">
+                  <img src="\${item.platform_icon}" alt="\${item.platform_name}" class="platform-icon" loading="lazy" />
+                  <span class="platform-name" title="\${item.platform_name}">\${item.platform_name_short}</span>
+                </span>
               </div>\` : ''}
               <div class="item-detail">
                 <span class="item-detail-label">Region:</span>

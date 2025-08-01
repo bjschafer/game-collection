@@ -22,6 +22,7 @@ export interface OwnershipRecord {
 
 export interface OwnershipRecordWithPlatform extends OwnershipRecord {
   platform_name: string;
+  platform_name_short: string;
   platform_icon: string;
   country_name: string;
   country_flag: string;

@@ -1,5 +1,5 @@
 import { Environment, OwnershipRecord, OwnershipRecordWithPlatform } from '../types/database';
-import { getPlatformName, getPlatformIcon, getAllPlatforms } from '../utils/platforms';
+import { getPlatformName, getShortPlatformName, getPlatformIcon, getAllPlatforms } from '../utils/platforms';
 import { getCountryName, getCountryFlag } from '../utils/countries';
 import { getGameyeItem } from '../utils/gameye';
 
@@ -12,6 +12,7 @@ export async function getGames(env: Environment): Promise<Response> {
     const gamesWithPlatforms: OwnershipRecordWithPlatform[] = result.results.map(game => ({
       ...game,
       platform_name: getPlatformName(game.platform_id),
+      platform_name_short: getShortPlatformName(game.platform_id),
       platform_icon: getPlatformIcon(game.platform_id),
       country_name: getCountryName(game.country_id),
       country_flag: getCountryFlag(game.country_id),
@@ -41,6 +42,7 @@ export async function getConsoles(env: Environment): Promise<Response> {
     const consolesWithPlatforms: OwnershipRecordWithPlatform[] = result.results.map(console => ({
       ...console,
       platform_name: getPlatformName(console.platform_id),
+      platform_name_short: getShortPlatformName(console.platform_id),
       platform_icon: getPlatformIcon(console.platform_id),
       country_name: getCountryName(console.country_id),
       country_flag: getCountryFlag(console.country_id),
@@ -70,6 +72,7 @@ export async function getAccessories(env: Environment): Promise<Response> {
     const accessoriesWithPlatforms: OwnershipRecordWithPlatform[] = result.results.map(accessory => ({
       ...accessory,
       platform_name: getPlatformName(accessory.platform_id),
+      platform_name_short: getShortPlatformName(accessory.platform_id),
       platform_icon: getPlatformIcon(accessory.platform_id),
       country_name: getCountryName(accessory.country_id),
       country_flag: getCountryFlag(accessory.country_id),
@@ -106,6 +109,7 @@ export async function getGameById(env: Environment, id: string): Promise<Respons
     const itemWithPlatform: OwnershipRecordWithPlatform = {
       ...result,
       platform_name: getPlatformName(result.platform_id),
+      platform_name_short: getShortPlatformName(result.platform_id),
       platform_icon: getPlatformIcon(result.platform_id),
       country_name: getCountryName(result.country_id),
       country_flag: getCountryFlag(result.country_id),
