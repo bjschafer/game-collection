@@ -1,7 +1,3 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
 This is a video game collection visualization and sharing project built on Cloudflare Workers with D1 database. The project allows users to display and share their video game, console, and accessory collections.
