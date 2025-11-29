@@ -1,7 +1,7 @@
 export const getNavigation = (activePage: string = '') => `
   <header class="header">
     <nav class="nav">
-      <h1><a href="/">🎮 Braxton's Game Collection</a></h1>
+      <h1><a href="/"><span class="site-logo">GC</span> Braxton's Collection</a></h1>
       <ul class="nav-links">
         <li><a href="/" ${activePage === 'home' ? 'class="active"' : ''}>Home</a></li>
         <li><a href="/games" ${activePage === 'games' ? 'class="active"' : ''}>Games</a></li>
@@ -263,7 +263,7 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
             \${item.note && item.note.trim() ? \`<div class="item-note">\${item.note}</div>\` : ''}
             <div class="item-actions">
               <a href="\${encyclopediaUrl}" target="_blank" rel="noopener noreferrer" class="gameye-link">
-                📖 View in GAMEYE Encyclopedia
+                View in GAMEYE →
               </a>
             </div>
           </div>

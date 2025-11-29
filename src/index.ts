@@ -1,11 +1,11 @@
-import { Router } from './utils/router';
-import { getGames, getConsoles, getAccessories, getGameById, getPlatforms, getGameyeItemData } from './handlers/games';
-import { getImageProxy } from './handlers/images';
+import { getAccessories, getConsoles, getGameById, getGames, getGameyeItemData, getPlatforms } from './handlers/games';
 import { getIcon } from './handlers/icons';
-import { Environment } from './types/database';
-import { getGamesPage } from './pages/games';
-import { getConsolesPage } from './pages/consoles';
+import { getImageProxy } from './handlers/images';
 import { getAccessoriesPage } from './pages/accessories';
+import { getConsolesPage } from './pages/consoles';
+import { getGamesPage } from './pages/games';
+import { Environment } from './types/database';
+import { Router } from './utils/router';
 
 const router = new Router();
 
@@ -73,6 +73,21 @@ router.get('/', async () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Braxton's Game Collection</title>
       <style>
+        :root {
+          --bg-primary: #0f0f13;
+          --bg-secondary: #1a1a23;
+          --bg-card: #22222d;
+          --bg-card-hover: #2a2a38;
+          --accent-primary: #00d4aa;
+          --accent-secondary: #ff6b35;
+          --accent-tertiary: #7c5cff;
+          --text-primary: #f0f0f5;
+          --text-secondary: #a0a0b0;
+          --text-muted: #6a6a7a;
+          --border-subtle: rgba(255, 255, 255, 0.08);
+          --border-accent: rgba(0, 212, 170, 0.3);
+        }
+        
         * {
           margin: 0;
           padding: 0;
@@ -80,16 +95,31 @@ router.get('/', async () => {
         }
         
         body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+          background: var(--bg-primary);
           min-height: 100vh;
-          color: #333;
+          color: var(--text-primary);
+          line-height: 1.6;
+        }
+        
+        body::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+          background-size: 50px 50px;
+          pointer-events: none;
+          z-index: 0;
         }
         
         .header {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          background: var(--bg-secondary);
+          border-bottom: 1px solid var(--border-subtle);
           padding: 1rem 0;
         }
         
@@ -103,105 +133,227 @@ router.get('/', async () => {
         }
         
         .nav h1 {
-          color: #667eea;
-          font-size: 1.8rem;
+          font-size: 1.5rem;
           font-weight: 700;
+          letter-spacing: -0.02em;
         }
         
         .nav h1 a {
           text-decoration: none;
-          color: inherit;
-          transition: opacity 0.3s ease;
+          color: var(--text-primary);
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: color 0.2s ease;
         }
         
         .nav h1 a:hover {
-          opacity: 0.8;
+          color: var(--accent-primary);
+        }
+        
+        .site-logo {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-tertiary) 100%);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.75rem;
+          font-weight: 700;
         }
         
         .nav-links {
           display: flex;
-          gap: 2rem;
+          gap: 0.5rem;
           list-style: none;
         }
         
         .nav-links a {
           text-decoration: none;
-          color: #555;
+          color: var(--text-secondary);
           font-weight: 500;
-          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          padding: 0.6rem 1rem;
           border-radius: 8px;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
+          position: relative;
         }
         
-        .nav-links a:hover, .nav-links a.active {
-          background: #667eea;
-          color: white;
+        .nav-links a:hover {
+          color: var(--text-primary);
+          background: var(--bg-card);
+        }
+        
+        .nav-links a.active {
+          color: var(--accent-primary);
+          background: rgba(0, 212, 170, 0.1);
         }
         
         .container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 3rem 2rem;
-          text-align: center;
+          position: relative;
+          z-index: 1;
         }
         
         .hero {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 16px;
-          padding: 3rem;
-          margin-bottom: 3rem;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          text-align: center;
+          margin-bottom: 4rem;
+          padding: 2rem 0;
         }
         
-        .hero h2 {
-          color: #667eea;
-          font-size: 2.5rem;
+        .hero-title {
+          font-size: 3rem;
+          font-weight: 700;
+          letter-spacing: -0.03em;
           margin-bottom: 1rem;
+          background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
         
-        .hero p {
-          font-size: 1.2rem;
-          color: #666;
-          margin-bottom: 2rem;
+        .hero-subtitle {
+          font-size: 1.15rem;
+          color: var(--text-secondary);
+          max-width: 500px;
+          margin: 0 auto;
         }
         
         .collection-cards {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
           margin-bottom: 3rem;
         }
         
         .collection-card {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 12px;
+          background: var(--bg-card);
+          border-radius: 16px;
           padding: 2rem;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid var(--border-subtle);
           transition: all 0.3s ease;
           text-decoration: none;
           color: inherit;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .collection-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, var(--card-accent, var(--accent-primary)), transparent);
+          opacity: 0;
+          transition: opacity 0.3s ease;
         }
         
         .collection-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+          background: var(--bg-card-hover);
+          border-color: var(--border-accent);
+          transform: translateY(-4px);
+        }
+        
+        .collection-card:hover::before {
+          opacity: 1;
+        }
+        
+        .collection-card:nth-child(1) { --card-accent: var(--accent-primary); }
+        .collection-card:nth-child(2) { --card-accent: var(--accent-tertiary); }
+        .collection-card:nth-child(3) { --card-accent: var(--accent-secondary); }
+        
+        .card-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.25rem;
+          font-size: 1.5rem;
+          background: rgba(0, 212, 170, 0.1);
+          border: 1px solid var(--border-subtle);
+        }
+        
+        .collection-card:nth-child(1) .card-icon {
+          background: rgba(0, 212, 170, 0.1);
+        }
+        
+        .collection-card:nth-child(2) .card-icon {
+          background: rgba(124, 92, 255, 0.1);
+        }
+        
+        .collection-card:nth-child(3) .card-icon {
+          background: rgba(255, 107, 53, 0.1);
         }
         
         .collection-card h3 {
-          color: #667eea;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+          color: var(--text-primary);
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          letter-spacing: -0.01em;
         }
         
         .collection-card p {
-          color: #666;
-          margin-bottom: 1rem;
+          color: var(--text-muted);
+          font-size: 0.9rem;
+          line-height: 1.5;
+          margin-bottom: 1.25rem;
         }
         
+        .card-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--text-secondary);
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: color 0.2s ease;
+        }
+        
+        .collection-card:hover .card-link {
+          color: var(--card-accent);
+        }
+        
+        .card-link svg {
+          width: 16px;
+          height: 16px;
+          transition: transform 0.2s ease;
+        }
+        
+        .collection-card:hover .card-link svg {
+          transform: translateX(4px);
+        }
+        
+        footer {
+          text-align: center;
+          padding: 2rem 0;
+          border-top: 1px solid var(--border-subtle);
+          margin-top: 2rem;
+        }
+        
+        footer a {
+          color: var(--text-muted);
+          text-decoration: none;
+          font-size: 0.85rem;
+          transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+          color: var(--accent-primary);
+        }
+        
+        @media (max-width: 900px) {
+          .collection-cards {
+            grid-template-columns: 1fr;
+          }
+        }
         
         @media (max-width: 768px) {
           .nav {
@@ -210,19 +362,21 @@ router.get('/', async () => {
           }
           
           .nav-links {
-            gap: 1rem;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: center;
           }
           
           .container {
             padding: 2rem 1rem;
           }
           
-          .hero h2 {
+          .hero-title {
             font-size: 2rem;
           }
           
-          .collection-cards {
-            grid-template-columns: 1fr;
+          .hero-subtitle {
+            font-size: 1rem;
           }
         }
       </style>
@@ -230,7 +384,7 @@ router.get('/', async () => {
     <body>
       <header class="header">
         <nav class="nav">
-          <h1><a href="/">🎮 Braxton's Game Collection</a></h1>
+          <h1><a href="/"><span class="site-logo">GC</span> Braxton's Collection</a></h1>
           <ul class="nav-links">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/games">Games</a></li>
@@ -242,31 +396,51 @@ router.get('/', async () => {
       
       <div class="container">
         <div class="hero">
-          <h2>Welcome to Braxton's Collection</h2>
-          <p>Explore and discover Braxton's curated video game, console, and accessory collection</p>
+          <h2 class="hero-title">Game Collection</h2>
+          <p class="hero-subtitle">A curated catalog of video games, consoles, and accessories</p>
         </div>
         
         <div class="collection-cards">
           <a href="/games" class="collection-card">
-            <h3>🎮 Games</h3>
-            <p>Browse Braxton's complete games library with detailed information about each title</p>
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary)"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+            </div>
+            <h3>Games</h3>
+            <p>Browse the complete library with platform details, quality ratings, and notes</p>
+            <span class="card-link">
+              View collection
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
           </a>
           
           <a href="/consoles" class="collection-card">
-            <h3>🖥️ Consoles</h3>
-            <p>View all of Braxton's gaming consoles and systems from retro to modern</p>
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-tertiary)"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h.01"/><path d="M17 7h.01"/><path d="M7 17h.01"/><path d="M17 17h.01"/></svg>
+            </div>
+            <h3>Consoles</h3>
+            <p>Explore gaming hardware from classic systems to modern platforms</p>
+            <span class="card-link">
+              View collection
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
           </a>
           
           <a href="/accessories" class="collection-card">
-            <h3>🎯 Accessories</h3>
-            <p>Check out Braxton's controllers, cables, and other gaming accessories</p>
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-secondary)"><path d="M12 20h.01"/><path d="M5 9.5a7 7 0 0 1 14 0"/><path d="M7.5 12a4.5 4.5 0 0 1 9 0"/></svg>
+            </div>
+            <h3>Accessories</h3>
+            <p>Controllers, cables, peripherals and everything in between</p>
+            <span class="card-link">
+              View collection
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
           </a>
         </div>
         
-        <footer style="margin-top: 2rem; padding: 1rem; text-align: center; color: rgba(255, 255, 255, 0.8);">
-          <a href="https://github.com/bjschafer/game-collection" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; font-size: 0.9rem;">View source code on GitHub</a>
+        <footer>
+          <a href="https://github.com/bjschafer/game-collection" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
         </footer>
-        
       </div>
     </body>
     </html>
