@@ -13,7 +13,7 @@ export const getNavigation = (activePage: string = '') => `
 `;
 
 export const getQualityIndicator = (quality: number | null): string => {
-  if (quality === null) return '<span class="quality-indicator quality-unknown"></span>';
+  if (quality === null || quality === 0) return '<span class="quality-indicator quality-unknown"></span>';
   if (quality >= 0.8) return '<span class="quality-indicator quality-excellent"></span>';
   if (quality >= 0.5) return '<span class="quality-indicator quality-good"></span>';
   return '<span class="quality-indicator quality-fair"></span>';
@@ -199,8 +199,8 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
     function displayStats(items) {
       const totalItems = items.length;
       const withNotes = items.filter(item => item.note && item.note.trim()).length;
-      const withQuality = items.filter(item => item.item_quality !== null).length;
-      const avgQuality = items.filter(item => item.item_quality !== null)
+      const withQuality = items.filter(item => item.item_quality !== null && item.item_quality !== 0).length;
+      const avgQuality = items.filter(item => item.item_quality !== null && item.item_quality !== 0)
         .reduce((sum, item, _, arr) => sum + item.item_quality / arr.length, 0);
       
       document.getElementById('stats').innerHTML = \`
@@ -247,7 +247,7 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
                 <span class="item-detail-label">Region:</span>
                 <span>\${item.country_flag} \${item.country_name}</span>
               </div>
-              \${item.item_quality !== null ? \`
+              \${item.item_quality !== null && item.item_quality !== 0 ? \`
               <div class="item-detail">
                 <span class="item-detail-label">Quality:</span>
                 <span>
@@ -275,7 +275,7 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
     }
     
     function getQualityIndicator(quality) {
-      if (quality === null) return '<span class="quality-indicator quality-unknown"></span>';
+      if (quality === null || quality === 0) return '<span class="quality-indicator quality-unknown"></span>';
       if (quality >= 0.8) return '<span class="quality-indicator quality-excellent"></span>';
       if (quality >= 0.5) return '<span class="quality-indicator quality-good"></span>';
       return '<span class="quality-indicator quality-fair"></span>';

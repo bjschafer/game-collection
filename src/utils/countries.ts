@@ -15,21 +15,21 @@ const COUNTRIES: Record<number, Country> = {
 
 export function getCountryName(countryId: number | null): string {
   if (!countryId || !COUNTRIES[countryId]) {
-    return 'Unknown';
+    return 'World';
   }
   return COUNTRIES[countryId].name;
 }
 
 export function getCountryFlag(countryId: number | null): string {
   if (!countryId || !COUNTRIES[countryId]) {
-    return '🏳️';
+    return '🌍';
   }
   return COUNTRIES[countryId].flag;
 }
 
 export function getShortCountryName(countryId: number | null): string {
   if (!countryId || !COUNTRIES[countryId]) {
-    return 'Unknown';
+    return 'World';
   }
   return COUNTRIES[countryId].shortName;
 }
