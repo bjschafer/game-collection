@@ -44,7 +44,7 @@ export function getPlatformName(platformId: number | null): string {
   if (platformId === null || platformId === undefined) {
     return 'Unknown Platform';
   }
-  
+
   return PLATFORM_MAPPINGS[platformId] || `Platform ${platformId}`;
 }
 
@@ -53,7 +53,7 @@ export function getPlatformName(platformId: number | null): string {
  */
 export function getShortPlatformName(platformId: number | null): string {
   const fullName = getPlatformName(platformId);
-  
+
   // Create shorter versions for common platforms
   const shortNames: Record<string, string> = {
     'Nintendo Entertainment System': 'NES',
@@ -68,7 +68,7 @@ export function getShortPlatformName(platformId: number | null): string {
     'Sega Master System': 'Master System',
     'Sega Game Gear': 'Game Gear',
   };
-  
+
   return shortNames[fullName] || fullName;
 }
 
@@ -76,10 +76,12 @@ export function getShortPlatformName(platformId: number | null): string {
  * Get all available platforms
  */
 export function getAllPlatforms(): Array<{ id: number; name: string }> {
-  return Object.entries(PLATFORM_MAPPINGS).map(([id, name]) => ({
-    id: parseInt(id),
-    name,
-  })).sort((a, b) => a.name.localeCompare(b.name));
+  return Object.entries(PLATFORM_MAPPINGS)
+    .map(([id, name]) => ({
+      id: parseInt(id),
+      name,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

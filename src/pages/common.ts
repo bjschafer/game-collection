@@ -13,12 +13,12 @@ export const getNavigation = (activePage: string = '') => `
 `;
 
 export const getQualityIndicator = (quality: number | null): string => {
-  if (quality === null || quality === 0) return '<span class="quality-indicator quality-unknown"></span>';
+  if (quality === null || quality === 0)
+    return '<span class="quality-indicator quality-unknown"></span>';
   if (quality >= 0.8) return '<span class="quality-indicator quality-excellent"></span>';
   if (quality >= 0.5) return '<span class="quality-indicator quality-good"></span>';
   return '<span class="quality-indicator quality-fair"></span>';
 };
-
 
 export const getJavaScript = (apiEndpoint: string, itemType: string) => `
   <script>

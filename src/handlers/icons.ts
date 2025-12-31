@@ -112,7 +112,7 @@ const PLATFORM_ICONS: Record<string, string> = {
  */
 export function getIcon(filename: string): Response {
   const svg = PLATFORM_ICONS[filename];
-  
+
   if (svg) {
     return new Response(svg, {
       headers: {
@@ -121,7 +121,7 @@ export function getIcon(filename: string): Response {
       },
     });
   }
-  
+
   // Return generic icon if specific one not found
   const genericSvg = PLATFORM_ICONS['generic.png'];
   return new Response(genericSvg, {
