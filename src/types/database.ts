@@ -26,6 +26,7 @@ export interface OwnershipRecordWithPlatform extends OwnershipRecord {
   platform_icon: string;
   country_name: string;
   country_flag: string;
+  vgpc_url: string | null;
 }
 
 export interface BacklogRecord {

@@ -228,8 +228,6 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
     
     function displayItems(items) {
       const html = items.map(item => {
-        const encyclopediaUrl = \`https://www.gameye.app/encylopedia/\${item.item_id}\`;
-        
         return \`
         <div class="item-card" data-item-id="\${item.item_id}">
           <div class="item-content">
@@ -262,9 +260,9 @@ export const getJavaScript = (apiEndpoint: string, itemType: string) => `
             </div>
             \${item.note && item.note.trim() ? \`<div class="item-note">\${item.note}</div>\` : ''}
             <div class="item-actions">
-              <a href="\${encyclopediaUrl}" target="_blank" rel="noopener noreferrer" class="gameye-link">
-                View in GAMEYE →
-              </a>
+              \${item.vgpc_url ? \`<a href="\${item.vgpc_url}" target="_blank" rel="noopener noreferrer" class="gameye-link">
+                View on PriceCharting →
+              </a>\` : ''}
             </div>
           </div>
         </div>

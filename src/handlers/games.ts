@@ -7,6 +7,7 @@ import {
 } from '../utils/platforms';
 import { getCountryName, getCountryFlag } from '../utils/countries';
 import { getGameyeItem } from '../utils/gameye';
+import { getVgpcUrl } from '../utils/vgpc';
 
 export async function getGames(env: Environment): Promise<Response> {
   try {
@@ -21,6 +22,7 @@ export async function getGames(env: Environment): Promise<Response> {
       platform_icon: getPlatformIcon(game.platform_id),
       country_name: getCountryName(game.country_id),
       country_flag: getCountryFlag(game.country_id),
+      vgpc_url: getVgpcUrl(game.title, game.platform_id),
     }));
 
     return new Response(JSON.stringify(gamesWithPlatforms), {
@@ -54,6 +56,7 @@ export async function getConsoles(env: Environment): Promise<Response> {
       platform_icon: getPlatformIcon(console.platform_id),
       country_name: getCountryName(console.country_id),
       country_flag: getCountryFlag(console.country_id),
+      vgpc_url: getVgpcUrl(console.title, console.platform_id),
     }));
 
     return new Response(JSON.stringify(consolesWithPlatforms), {
@@ -88,6 +91,7 @@ export async function getAccessories(env: Environment): Promise<Response> {
         platform_icon: getPlatformIcon(accessory.platform_id),
         country_name: getCountryName(accessory.country_id),
         country_flag: getCountryFlag(accessory.country_id),
+        vgpc_url: getVgpcUrl(accessory.title, accessory.platform_id),
       }),
     );
 
@@ -129,6 +133,7 @@ export async function getGameById(env: Environment, id: string): Promise<Respons
       platform_icon: getPlatformIcon(result.platform_id),
       country_name: getCountryName(result.country_id),
       country_flag: getCountryFlag(result.country_id),
+      vgpc_url: getVgpcUrl(result.title, result.platform_id),
     };
 
     return new Response(JSON.stringify(itemWithPlatform), {

@@ -1,3 +1,46 @@
+// VGPriceCharting platform slugs (used to build pricecharting.com URLs)
+export const VGPC_PLATFORM_SLUGS: Record<number, string> = {
+  1: 'pc',
+  2: 'gamecube',
+  3: 'nintendo-64',
+  4: 'game-boy',
+  5: 'game-boy-advance',
+  6: 'super-nintendo',
+  7: 'nes',
+  8: 'nintendo-ds',
+  9: 'wii',
+  10: 'playstation',
+  11: 'playstation-2',
+  12: 'playstation-3',
+  13: 'psp',
+  14: 'xbox',
+  15: 'xbox-360',
+  16: 'sega-dreamcast',
+  17: 'sega-saturn',
+  18: 'sega-genesis',
+  19: 'game-gear',
+  20: 'neo-geo',
+  21: 'atari-2600',
+  32: 'sega-32x',
+  34: 'sega-master-system',
+  36: 'wii-u',
+  37: 'playstation-vita',
+  38: 'commodore-64',
+  39: 'game-boy-color',
+  41: 'nintendo-3ds',
+  46: 'playstation-4',
+  47: 'xbox-one',
+  97: 'nintendo-switch',
+  105: 'playstation-5',
+  106: 'xbox-series-x',
+  178: 'nintendo-switch-2',
+};
+
+export function getVgpcPlatformSlug(platformId: number | null): string | null {
+  if (platformId === null || platformId === undefined) return null;
+  return VGPC_PLATFORM_SLUGS[platformId] ?? null;
+}
+
 // Platform mapping data with corrected official names
 export const PLATFORM_MAPPINGS: Record<number, string> = {
   2: 'Nintendo GameCube',
