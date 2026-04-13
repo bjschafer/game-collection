@@ -181,6 +181,8 @@ export const getSharedStyles = () => `
       transition: all 0.25s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     
     .item-card::before {
@@ -228,6 +230,8 @@ export const getSharedStyles = () => `
     .item-content {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
     }
     
     .item-title {
@@ -237,6 +241,7 @@ export const getSharedStyles = () => `
       margin-bottom: 0.75rem;
       line-height: 1.4;
       letter-spacing: -0.01em;
+      min-height: 2.94rem;
     }
     
     .item-details {
@@ -468,7 +473,7 @@ export const getSharedStyles = () => `
     }
     
     .item-actions {
-      margin-top: 1rem;
+      margin-top: auto;
       padding-top: 1rem;
       border-top: 1px solid var(--border-subtle);
     }
