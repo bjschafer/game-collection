@@ -9,7 +9,8 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
-    "format": "prettier --write src/**/*.ts"
+    "format": "prettier --write src/**/*.ts scripts/**/*.mjs",
+    "import:gameye": "node scripts/import-gameye.mjs"
   },
   "keywords": [
     "cloudflare",

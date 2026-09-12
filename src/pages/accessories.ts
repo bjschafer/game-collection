@@ -1,5 +1,5 @@
 import { getSharedStyles } from './styles';
-import { getNavigation, getJavaScript } from './common';
+import { getCollectionIntro, getFilters, getJavaScript, getNavigation } from './common';
 
 export function getAccessoriesPage(): string {
   return `
@@ -14,19 +14,19 @@ export function getAccessoriesPage(): string {
     <body>
       ${getNavigation('accessories')}
       
-      <div class="container">
+      <main class="container">
+        ${getCollectionIntro('Accessories', 'Controllers, adapters, cables, and other accessories in my collection.')}
         <div id="stats" class="stats">
-          <div class="loading">Loading statistics...</div>
+          <div class="loading">Loading totals…</div>
         </div>
-        
+        ${getFilters('accessories')}
         <div id="content">
-          <div class="loading">Loading accessories collection...</div>
+          <div class="loading">Loading accessories…</div>
         </div>
-        
         <div id="items" class="collection-grid"></div>
-      </div>
+      </main>
       
-      ${getJavaScript('/api/accessories', 'accessories')}
+      ${getJavaScript('/api/accessories')}
     </body>
     </html>
   `;

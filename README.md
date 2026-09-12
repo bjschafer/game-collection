@@ -4,28 +4,30 @@
 
 This is a game collection viewer designed to run on Cloudflare Workers and D1.
 
-It gets the collection data by manually importing data from GAMEYE into D1.
+It gets the collection data from a GAMEYE export and loads it into D1.
 
 ## Importing from GAMEYE
 
-You'll need to export your collection from the GAMEYE app and get it onto your computer.
-It will come as a `.ged` file. This is actually a zip file in disguise. Extract the zipfile
-and you'll be left with a sqlite database file called `ownership_database.db`.
+Export your collection from GAMEYE and copy the resulting `.ged` file to your computer.
+The importer validates the archive and SQLite database before changing D1.
 
-Now, we need to get this into a D1 database:
+Import into the local development database:
 
 ```bash
-sqlite3 ownership_database.db .dump > db.sql
-sed -i \
-    -e 's/BEGIN TRANSACTION;//g' \
-    -e 's/COMMIT;//g' \
-    -e 's/CREATE TABLE /CREATE TABLE IF NOT EXISTS /g' \
-    -e 's/INSERT INTO /INSERT OR IGNORE INTO /g' \
-    -e 's/CREATE INDEX /CREATE INDEX IF NOT EXISTS /g' \
-    db.sql
-
-npx wrangler d1 execute games_owned --remote --file=db.sql
+npm run import:gameye -- ./GAMEYE_export.ged
 ```
+
+When the local collection looks right, import it into the production database:
+
+```bash
+npm run import:gameye -- ./GAMEYE_export.ged --remote
+```
+
+Remote imports first write a timestamped D1 backup in the project directory. The
+import replaces the `ownership`, `backlog`, `tags`, and `owned_items_tags` tables
+as one GAMEYE snapshot, so edits and deletions are reflected instead of being
+silently skipped. Use `--prepare-only` to validate an export and write the D1 SQL
+without applying it.
 
 ## Note
 

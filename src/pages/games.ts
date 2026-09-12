@@ -1,5 +1,5 @@
 import { getSharedStyles } from './styles';
-import { getNavigation, getJavaScript } from './common';
+import { getCollectionIntro, getFilters, getJavaScript, getNavigation } from './common';
 
 export function getGamesPage(): string {
   return `
@@ -14,38 +14,19 @@ export function getGamesPage(): string {
     <body>
       ${getNavigation('games')}
       
-      <div class="container">
+      <main class="container">
+        ${getCollectionIntro('Games', 'Browse the games I own. Search by title, filter by platform, or sort by when I added them.')}
         <div id="stats" class="stats">
-          <div class="loading">Loading statistics...</div>
+          <div class="loading">Loading totals…</div>
         </div>
-        
+        ${getFilters('games')}
         <div id="content">
-          <div class="loading">Loading games collection...</div>
+          <div class="loading">Loading games…</div>
         </div>
-        
-        <div id="filters" class="filters">
-          <div class="filter-group">
-            <label for="search">Search Games:</label>
-            <input type="text" id="search" placeholder="Search by title..." />
-          </div>
-          
-          <div class="filter-group">
-            <label for="platform-filter">Filter by Platform:</label>
-            <select id="platform-filter">
-              <option value="">All Platforms</option>
-            </select>
-          </div>
-          
-          <div class="filter-info">
-            <span id="filter-count">Showing all games</span>
-            <button id="clear-filters" class="clear-filters-btn" style="display: none;">Clear Filters</button>
-          </div>
-        </div>
-        
         <div id="items" class="collection-grid"></div>
-      </div>
+      </main>
       
-      ${getJavaScript('/api/games', 'games')}
+      ${getJavaScript('/api/games')}
     </body>
     </html>
   `;
