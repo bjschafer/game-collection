@@ -231,8 +231,15 @@ export const getSharedStyles = () => `
       transition: background 150ms ease;
     }
     .item-card:hover { background: #fffaf0; }
+    .item-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 48px;
+      margin-bottom: 1.25rem;
+    }
     .item-index {
-      margin-bottom: 1.3rem;
       color: var(--ink-faint);
       font-size: 0.67rem;
       font-weight: 700;
@@ -265,8 +272,14 @@ export const getSharedStyles = () => `
       text-transform: uppercase;
     }
     .platform-info { display: inline-flex; align-items: center; gap: 0.45rem; min-width: 0; }
-    .platform-name { overflow: hidden; max-width: 160px; text-overflow: ellipsis; white-space: nowrap; }
-    .platform-icon { width: 22px; height: 22px; object-fit: contain; }
+    .platform-name { max-width: 180px; overflow-wrap: anywhere; }
+    .platform-icon {
+      width: 120px;
+      height: 48px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      object-position: right center;
+    }
     .quality-indicator {
       display: inline-block;
       width: 7px;

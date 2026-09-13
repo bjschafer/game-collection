@@ -1,0 +1,179 @@
+{
+  "pc.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Computers/PC%20Games-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "6dedebdbe3b48fb4a199341f2dfa9028b7420745c06004ce7b936285d56d2916"
+  },
+  "gamecube.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%20GameCube-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "590b1211cbdf07f93bd2a5db0c5a5f6cc712028014ad5e87373e461878a822f5"
+  },
+  "n64.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%2064-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "9ed1791f8e0409b85d28fb33265afb78523fc2367ad6222cb640aa964586b0fd"
+  },
+  "gameboy.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Nintendo%20Game%20Boy-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "849b193e676104daed78d56102de5b33c84bd10804947c55ea6b739717db7d09"
+  },
+  "gba.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Nintendo%20Game%20Boy%20Advance-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "582338e2f2017896ba2b9e0a636041dab70e87ad8df358fead0d689fdb2c7ece"
+  },
+  "snes.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Super%20Nintendo%20Entertainment%20System-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "b085bce07236508c225512f643a794a95b3b6ce2c12e940b38c2cfb7faa8b11d"
+  },
+  "nes.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%20Entertainment%20System%2C07.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "034cb114cc86db07498324081e31761b7fbd58bfdb45a4ea7e1962d4b925a2b8"
+  },
+  "ds.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Nintendo%20DS-07.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "c07f34abf3a4c294fe7c71180ac12e358cb7d64448f487d260f9092c87efbcee"
+  },
+  "wii.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%20Wii-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "dda1be9f0c6d7d9d84f47a8957601002eeb8b039749dc7f069de2a103c852b7b"
+  },
+  "ps1.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sony%20Playstation-10.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "73b4ee05a9185fa3f0c6d73ced33b8e433f4fe083de888ebb271154b813a042d"
+  },
+  "ps2.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sony%20Playstation%202-25.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "ac00fbf7da0df36e01fcb8cae2d20d73512821c605965a26f23438f8bc5701e0"
+  },
+  "ps3.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sony%20Playstation%203-%2C03.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "2244ff3642a46610f30056c32b74049cae188e1ac90b506c971f1e6b4031535a"
+  },
+  "psp.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Sony%20PSP-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "653d34882f12380ec48799a74487173cf188671749f13db52ad21baa9d9a0209"
+  },
+  "xbox.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Microsoft%20Xbox-05.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "745b8c0d1328505f95480e756f1021a8c0e6e915cd1a1718ada4b6208fc901fa"
+  },
+  "xbox360.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Microsoft%20Xbox%20360-03.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "a3828783c89850c62af89a2cceb5364129aacd7cc2760bfa10fd1c4629c3ec7f"
+  },
+  "dreamcast.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sega%20Dreamcast-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "36d806da69984bf2274abae721cc535d4efc5ce83bea3682eacc040ea6b6a7aa"
+  },
+  "saturn.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sega%20Saturn%20%28Japan%29-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "14ea8d51817b108da1de14466cee10426ebe0c5c13e57fbe1935d768df6c2dee"
+  },
+  "genesis.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sega%20Genesis-23.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "cd1165c6b31db8e0a613e2e869e3da28801cdda797e65906c8312ef6986c06d6"
+  },
+  "gamegear.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Sega%20Game%20Gear..-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "54d7c93328385c62c6036088f5d3db743cc97dd7b27c965d478721acce9f4a51"
+  },
+  "neogeo.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/SNK%20Neo%20Geo%20AES-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "5439bfc1f4f52468b4f7b9c82f66b97b8590747894907a10035910aecb324da1"
+  },
+  "atari2600.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Atari%202600-01-02.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "d461d5cd8d23d3cccfeb2a6a3455b6d7abeb1297414b81342efdf0d2958b24ed"
+  },
+  "32x.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sega%2032X-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "76bc289ebdcc1bb69a5223f5311812c633c65c18cc159e9f0bc0671cfbb8a0f7"
+  },
+  "mastersystem.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sega%20Master%20System-35.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "b95f831cf74619328a0c4d2fd75de541825de403f22b8db25575aca5b18ba4cb"
+  },
+  "wiiu.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%20Wii%20U-15.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "55791c7f82868633ddcffd639640b06d5a48062db661f843c425e21bc0c58e47"
+  },
+  "vita.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Sony%20Playstation%20Vita-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "c85ed4e982eb822b929b8ea2238a453363ddd72021c6b5637ecbdd46f615a385"
+  },
+  "c64.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Computers/Commodore%2064%202-02.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "a78ed1adfa4561dce4489b69a21bfe021a13594a676305078549f3b439f472d2"
+  },
+  "gbc.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Nintendo%20Game%20Boy%20Color-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "48cb3995766387ef05aea9b1d7861774221eee458eed487d579946ef51e8b5c9"
+  },
+  "3ds.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Handhelds/Nintendo%203DS-07.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "b79e59a5718b4cbe5dd7230c69467357c3fe3db3bdb6361fb6773ce1268eb6da"
+  },
+  "ps4.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sony%20Playstation%204-04.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "69a1e52964326b381dde7b7851506bb6d1d1f9357a2f7db9267e3d47469de413"
+  },
+  "xbox-one.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Microsoft%20Xbox%20One-02.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "57855088890d166d89455b5bd355ec7888a6daed23d9f214f41f730ca76349c2"
+  },
+  "switch.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Nintendo%20Switch-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "690a3dcce3f5375f9a69af1c256d61ed37b3dea2a4034ffc05a6a669e1795dc0"
+  },
+  "ps5.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Sony%20Playstation%205-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "90abc8121d6a2ed1b074568be7d07644b47b1e2d1412455564c222662ab4c78c"
+  },
+  "xbox-series.svg": {
+    "url": "https://raw.githubusercontent.com/PRO100BYTE/console-logos/1de47931607ddf83cbc982d776b68e6cc3864ad7/SVGs%20%28vector%29%20%28Full%20Set%29%20v2.1/Dark%20-%20Color/Consoles/Microsoft%20Xbox%20Series%20-01.svg",
+    "credit": "Dan Patrick; PRO100BYTE/console-logos mirror",
+    "sha256": "831d162fd102bc4033e48f27bcdbe3fb88d90fc14dad580e12feef2c4fc13b3b"
+  },
+  "switch2.svg": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Nintendo_Switch_2_logo_transparent_black.svg",
+    "credit": "Nintendo; Wikimedia Commons (PD-textlogo)",
+    "source": "https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_logo_transparent_black.svg",
+    "sha256": "e96287f4dea40eb84682cd258f19a95e831f746db83ffa82f775eb06647db49b"
+  },
+  "amiibo.svg": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Amiibo.svg",
+    "credit": "Nintendo; Wikimedia Commons (PD-textlogo)",
+    "source": "https://commons.wikimedia.org/wiki/File:Amiibo.svg",
+    "sha256": "e644134c46b0c44a9d48b53a81deaf01990d6d8b37995bf556d7d5de9c3b7a46"
+  }
+}

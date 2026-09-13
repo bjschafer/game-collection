@@ -29,3 +29,9 @@ command = "npm run build"
 [observability]
 enabled = true
 head_sampling_rate = 1
+
+# Bundle platform artwork as text; icons never require an upstream fetch.
+[[rules]]
+type = "Text"
+globs = ["**/*.svg"]
+fallthrough = true

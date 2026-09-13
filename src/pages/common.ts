@@ -162,8 +162,7 @@ export const getJavaScript = (apiEndpoint: string) => `
 
       itemsElement.innerHTML = items.map((item, index) => {
         const platform = '<div class="item-detail"><span class="item-detail-label">Platform</span>' +
-          '<span class="platform-info"><img src="' + escapeHtml(item.platform_icon) +
-          '" alt="" class="platform-icon" loading="lazy" /><span class="platform-name" title="' +
+          '<span class="platform-info"><span class="platform-name" title="' +
           escapeHtml(item.platform_name) + '">' + escapeHtml(item.platform_name_short) + '</span></span></div>';
         const condition = item.item_quality
           ? '<div class="item-detail"><span class="item-detail-label">Condition</span><span>' +
@@ -179,8 +178,9 @@ export const getJavaScript = (apiEndpoint: string) => `
         const added = new Date(item.created_at * 1000)
           .toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
 
-        return '<article class="item-card"><div class="item-index">' +
-          String(index + 1).padStart(3, '0') + '</div><h3 class="item-title">' +
+        return '<article class="item-card"><div class="item-heading"><div class="item-index">' +
+          String(index + 1).padStart(3, '0') + '</div><img src="' + escapeHtml(item.platform_icon) +
+          '" alt="" class="platform-icon" width="120" height="48" loading="lazy" decoding="async" /></div><h3 class="item-title">' +
           escapeHtml(item.title) + '</h3><div class="item-details">' + platform +
           '<div class="item-detail"><span class="item-detail-label">Region</span><span>' +
           escapeHtml(item.country_flag) + ' ' + escapeHtml(item.country_name) + '</span></div>' +
