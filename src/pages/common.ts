@@ -1,7 +1,7 @@
 export const getNavigation = (activePage: string = '') => `
   <header class="header">
     <nav class="nav" aria-label="Primary navigation">
-      <h1><a class="brand" href="/"><span class="site-logo" aria-hidden="true">BC</span> Braxton's Collection</a></h1>
+      <h1><a class="brand" href="/"><span class="site-logo" aria-hidden="true">bjs</span> Braxton's Collection</a></h1>
       <ul class="nav-links">
         <li><a href="/" ${activePage === 'home' ? 'class="active" aria-current="page"' : ''}>Index</a></li>
         <li><a href="/games" ${activePage === 'games' ? 'class="active" aria-current="page"' : ''}>Games</a></li>
